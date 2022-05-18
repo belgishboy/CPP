@@ -6,7 +6,7 @@
 /*   By: vheymans <vheymans@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 14:09:39 by vheymans          #+#    #+#             */
-/*   Updated: 2022/02/13 15:32:43 by vheymans         ###   ########.fr       */
+/*   Updated: 2022/05/18 19:36:21 by vheymans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,13 @@
 class Phonebook
 {
 	public:
-
-	Contact book[8];
-
-	Phonebook (void);
-	~Phonebook (void);
-	
-	int	index;
-	int	e;
-
-	void add(void);
-	void search(void);
-	void exit(void);
-	
+		Phonebook (void);
+		~Phonebook (void);
+		Contact book[8];
+		int	index;
+		int	e;
+		void add(void);
+		void search(void);
 };
 
 #endif

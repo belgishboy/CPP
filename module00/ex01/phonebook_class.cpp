@@ -6,7 +6,7 @@
 /*   By: vheymans <vheymans@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 14:09:39 by vheymans          #+#    #+#             */
-/*   Updated: 2022/02/13 15:35:16 by vheymans         ###   ########.fr       */
+/*   Updated: 2022/05/18 19:36:49 by vheymans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 Phonebook::Phonebook (void)
 {
 	std::cout << "Phonebook Construtor Called" << std::endl;
-	Phonebook::index = 0;
-	Phonebook::e = 1;
+	this->index = 0;
+	this->e = 1;
 
 	return ;
 }
@@ -28,9 +28,16 @@ Phonebook::~Phonebook (void)
 	return ;
 }
 
-void add(void)
+void Phonebook::add(void)
 {
-	
+	this->book[index].set_contact();
+	this->index ++;
+
+	return ;
 }
-void search(void);
-void exit(void);
+void Phonebook::search(void)
+{
+	int i = 0;
+
+	while 
+}
