@@ -6,7 +6,7 @@
 /*   By: vheymans <vheymans@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 14:09:39 by vheymans          #+#    #+#             */
-/*   Updated: 2022/05/18 19:36:21 by vheymans         ###   ########.fr       */
+/*   Updated: 2022/05/18 20:21:20 by vheymans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Phonebook
 		~Phonebook (void);
 		Contact book[8];
 		int	index;
+		int	full;
 		int	e;
 		void add(void);
 		void search(void);
