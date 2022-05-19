@@ -6,7 +6,7 @@
 /*   By: vheymans <vheymans@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 14:17:55 by vheymans          #+#    #+#             */
-/*   Updated: 2022/05/18 19:33:39 by vheymans         ###   ########.fr       */
+/*   Updated: 2022/05/19 14:28:18 by vheymans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,59 +16,80 @@
 
 Contact::Contact( void)
 {
-	std::cout << "Contact Constructor called" << std::endl;
-
 	return ;
 }
 
-void Contact::set_contact(void)
+void Contact::set_contact(int index)
 {
+	this->index = index;
+
 	std::cout << std::endl << "Enter contact's first name:" << std::endl;
-	std::cin >> Contact::fname;
+	std::cin >> this->fname;
 
 	std::cout << std::endl << "Enter contact's last name:" << std::endl;
-	std::cin >> Contact::lname;
+	std::cin >> this->lname;
 
 	std::cout << std::endl << "Enter contact's nickname:" << std::endl;
-	std::cin >> Contact::nname;
+	std::cin >> this->nname;
 
 	std::cout << std::endl << "Enter contact's phone number:" << std::endl;
-	std::cin >> Contact::ph_nbr;
+	std::cin >> this->ph_nbr;
 
 	std::cout << std::endl << "Enter contact's darkest secret:" << std::endl;
-	std::cin >> Contact::secret;
+	std::cin >> this->secret;
 
 	return ;
 }
 
 void Contact::get_contact(void)
 {
-	std::cout << std::endl << "Contact's first name:" << std::endl;
-	std::cout << Contact::fname;
+	std::cout << "|" << std::setw(10) << this->index << "|";
+	
+	if (this->fname.length() > 10)
+		std::cout << this->fname.substr(0, 9) << "." << "|";
+	else
+		std::cout << std::setw(10) << this->fname << "|";
+		
+	if (this->lname.length() > 10)
+		std::cout << this->lname.substr(0, 9) << "." << "|";
+	else
+		std::cout << std::setw(10) << this->lname << "|";
+		
+	if (this->nname.length() > 10)
+		std::cout << this->nname.substr(0, 9) << "." << "|";
+	else
+		std::cout << std::setw(10) << this->nname << "|";
 
-	std::cout << std::endl << "Contact's last name:" << std::endl;
-	std::cout << Contact::lname;
-
-	std::cout << std::endl << "Contact's nickname:" << std::endl;
-	std::cout << Contact::nname;
-
-	std::cout << std::endl << "Contact's phone number:" << std::endl;
-	std::cout << Contact::ph_nbr;
+	if (this->ph_nbr.length() > 10)
+		std::cout << this->ph_nbr.substr(0, 9) << "." << "|";
+	else
+		std::cout << std::setw(10) << this->ph_nbr << "|";
 
 	return ;
 }
 
 void Contact::get_secret(void)
 {
+	
+	std::cout << std::endl << "Contact's first name:" << std::endl;
+	std::cout << this->fname;
+
+	std::cout << std::endl << "Contact's last name:" << std::endl;
+	std::cout << this->lname;
+
+	std::cout << std::endl << "Contact's nickname:" << std::endl;
+	std::cout << this->nname;
+
+	std::cout << std::endl << "Contact's phone number:" << std::endl;
+	std::cout << this->ph_nbr;
+	
 	std::cout << std::endl << "Contact's darkest secret:" << std::endl;
-	std::cout << Contact::secret;
+	std::cout << this->secret;
 
 	return ;
 }
 
 Contact::~Contact(void)
 {
-	std::cout << "Contact Destructor called" << std::endl;
-
 	return ;
 }
