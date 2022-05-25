@@ -14,7 +14,7 @@ int main (void)
 		{
 			std::cout << std::endl << "Enter a name for the new Zombie" << std::endl;
 			std::cin >> input;
-			newZombie(input);
+			(newZombie(input))->announce();
 		}
 		else if (input == "Chump")
 		{
