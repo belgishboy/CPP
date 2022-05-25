@@ -3,6 +3,9 @@
 int main (void)
 {
 	std::string	input;
+	Zombie *zombie;
+
+	zombie = NULL;
 
 	while (1)
 	{
@@ -12,9 +15,12 @@ int main (void)
 			break ;
 		else if (input == "newZombie")
 		{
+			if (zombie)
+				delete zombie;
 			std::cout << std::endl << "Enter a name for the new Zombie" << std::endl;
 			std::cin >> input;
-			(newZombie(input))->announce();
+			zombie = newZombie(input);
+			zombie->announce();
 		}
 		else if (input == "Chump")
 		{
@@ -27,5 +33,8 @@ int main (void)
 			std::cout << std::endl << "Invalid command" << std::endl;
 		}
 	}
+	if (zombie)
+		delete zombie;
+
 	return (0);
 }
