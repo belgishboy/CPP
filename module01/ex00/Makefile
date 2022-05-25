@@ -1,8 +1,9 @@
-NAME	= phonebook
+NAME	= Zombie
 
 SRC	=	main.cpp \
-		contact_class.cpp \
-		phonebook_class.cpp \
+		Zombie.cpp \
+		newZombie.cpp \
+		randomChump.cpp \
 
 OBJ	= $(SRC:.cpp=.o)
 
