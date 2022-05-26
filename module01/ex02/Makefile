@@ -14,7 +14,8 @@ $(NAME): $(SRC)
 	$(CC) $(FLAGS) $(SRC) -o $(NAME)
 	$(MAKE) clean
 
-grind:
+grind: 
+	$(MAKE)
 	valgrind --leak-check=full ./$(NAME)
 
 clean:
