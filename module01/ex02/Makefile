@@ -14,6 +14,9 @@ $(NAME): $(SRC)
 	$(CC) $(FLAGS) $(SRC) -o $(NAME)
 	$(MAKE) clean
 
+grind:
+	valgrind --leak-check=full ./$(NAME)
+
 clean:
 	rm -rf $(OBJ)
 
@@ -21,5 +24,6 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
+
 
 .PHONY: all clean fclean re
