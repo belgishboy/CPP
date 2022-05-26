@@ -3,6 +3,7 @@
 
 Zombie::Zombie( void)
 {
+	std::cout << std::endl << "Zombie created" << std::endl;
 	return ;
 }
 
