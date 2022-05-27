@@ -1,8 +1,9 @@
-NAME	= Zombie
+NAME	= Fight
 
 SRC	=	main.cpp \
-		Zombie.cpp \
-		zombieHorde.cpp \
+		HumanA.cpp \
+		HumanB.cpp \
+		Weapon.cpp \
 
 OBJ	= $(SRC:.cpp=.o)
 
