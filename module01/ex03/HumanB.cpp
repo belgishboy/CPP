@@ -10,13 +10,13 @@ HumanB::HumanB (std::string name)
 
 void HumanB::attack(void)
 {
-	std::cout << std::endl << name << " attacks with thier " << weapon.getType() << std::endl;
+	std::cout << std::endl << name << " attacks with thier " << weapon->getType() << std::endl;
 	return ;
 }
 
-void HumanB::setWeapon (Weapon weapon)
+void HumanB::setWeapon (Weapon &new_weapon)
 {
-	this->weapon = weapon;
+	this->weapon = &new_weapon;
 	return ;
 }
 

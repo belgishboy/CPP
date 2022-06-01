@@ -1,9 +1,9 @@
 NAME	= Fight
 
 SRC	=	main.cpp \
+		Weapon.cpp \
 		HumanA.cpp \
 		HumanB.cpp \
-		Weapon.cpp \
 
 OBJ	= $(SRC:.cpp=.o)
 

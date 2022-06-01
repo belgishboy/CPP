@@ -1,10 +1,16 @@
 
 #include "Weapon.h"
 
+Weapon::Weapon ( void )
+{
+	std::cout << std::endl << "Weapon None Created" << std::endl;
+	return ;
+}
+
 Weapon::Weapon (std::string type)
 {
 	this->type = type;
-	std::cout << std::endl << "Weapon Created" << std::endl;
+	std::cout << std::endl << "Weapon " << this->type << " Created" << std::endl;
 	return ;
 }
 
@@ -21,6 +27,6 @@ void Weapon::setType( std::string type )
 
 Weapon::~Weapon (void)
 {
-	std::cout << std::endl << "Weapon Destroyed" << std::endl;
+	std::cout << std::endl << "Weapon " << this->type << " Destroyed" << std::endl;
 	return ;
 }
