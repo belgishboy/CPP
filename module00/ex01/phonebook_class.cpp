@@ -6,7 +6,7 @@
 /*   By: vheymans <vheymans@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 14:09:39 by vheymans          #+#    #+#             */
-/*   Updated: 2022/05/19 14:27:59 by vheymans         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:53:39 by vheymans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void Phonebook::search(void)
 	{
 		std::cout << std::endl << "Enter Index of Contact you wish to view :" << std::endl;
 		std::cin >> input;
-		i = stoi(input);
+		i = std::atoi(input.c_str());
 		if (i > limit || i < 0)
 			std::cout << std::endl<< "Invalid Index" << std::endl;
 		else

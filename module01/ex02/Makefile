@@ -1,6 +1,6 @@
-NAME	= megaphone
+NAME	= BRAIN
 
-SRC	=	megaphone.cpp
+SRC	=	main.cpp \
 
 OBJ	= $(SRC:.cpp=.o)
 
@@ -14,6 +14,10 @@ $(NAME): $(SRC)
 	$(CC) $(FLAGS) $(SRC) -o $(NAME)
 	$(MAKE) clean
 
+grind: 
+	$(MAKE)
+	valgrind --leak-check=full ./$(NAME)
+
 clean:
 	rm -rf $(OBJ)
 
@@ -21,5 +25,6 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
+
 
 .PHONY: all clean fclean re

@@ -8,7 +8,7 @@ OBJ	= $(SRC:.cpp=.o)
 
 CC		= clang++
 
-FLAGS	= -Wall -Werror -Wextra
+FLAGS	= -Wall -Werror -Wextra -std=c++98 -pedantic-errors
 
 all:	$(NAME)
 

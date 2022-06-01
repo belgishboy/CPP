@@ -1,6 +1,9 @@
-NAME	= megaphone
+NAME	= Zombie
 
-SRC	=	megaphone.cpp
+SRC	=	main.cpp \
+		Zombie.cpp \
+		newZombie.cpp \
+		randomChump.cpp \
 
 OBJ	= $(SRC:.cpp=.o)
 
@@ -13,6 +16,10 @@ all:	$(NAME)
 $(NAME): $(SRC)
 	$(CC) $(FLAGS) $(SRC) -o $(NAME)
 	$(MAKE) clean
+
+grind: 
+	$(MAKE)
+	valgrind --leak-check=full ./$(NAME)
 
 clean:
 	rm -rf $(OBJ)
