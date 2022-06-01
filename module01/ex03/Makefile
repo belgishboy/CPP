@@ -20,6 +20,7 @@ $(NAME): $(SRC)
 grind: 
 	$(MAKE)
 	valgrind --leak-check=full ./$(NAME)
+	rm -rf *.dSYM
 
 clean:
 	rm -rf $(OBJ)
