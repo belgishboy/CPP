@@ -1,3 +1,4 @@
 #ignore
 playing/
 .vscode/
+*.dSYM
