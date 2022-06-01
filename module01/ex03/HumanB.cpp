@@ -1,14 +1,27 @@
 
 #include "HumanB.h"
 
-HumanB::HumanB (void)
+HumanB::HumanB (std::string name)
 {
-	std::cout << std::endl << "HumanB Created" << std::endl;
+	this->name = name;
+	std::cout << std::endl << "HumanB " << this->name << " Created" << std::endl;
+	return ;
+}
+
+void HumanB::attack(void)
+{
+	std::cout << std::endl << name << " attacks with thier " << weapon.getType() << std::endl;
+	return ;
+}
+
+void HumanB::setWeapon (Weapon weapon)
+{
+	this->weapon = weapon;
 	return ;
 }
 
 HumanB::~HumanB (void)
 {
-	std::cout << std::endl << "HumanB Destroyed" << std::endl;
+	std::cout << std::endl << "HumanB " << this->name << " Destroyed" << std::endl;
 	return ;
 }
