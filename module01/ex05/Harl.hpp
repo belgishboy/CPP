@@ -7,6 +7,7 @@
 class Harl
 {
 	public :
+		typedef void (Harl::*HarlAction)(void);
 		Harl ( void );
 		~Harl ( void );
 		void complain ( std::string level );
