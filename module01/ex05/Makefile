@@ -1,7 +1,7 @@
-NAME	= Sed
+NAME	= Harl
 
 SRC	=	main.cpp \
-		replace.cpp \
+		Harl.cpp \
 
 OBJ	= $(SRC:.cpp=.o)
 
