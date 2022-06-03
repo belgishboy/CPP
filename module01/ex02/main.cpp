@@ -17,7 +17,7 @@ int main (void)
 	std::cout << std::endl << "stringPTR : " << *stringPTR << std::endl;
 	std::cout << std::endl << "stringREF : " << stringREF << std::endl;
 
-	s = "BYE";
+	/*s = "BYE";
 
 	std::cout << std::endl << "string : " << &s << std::endl;
 	std::cout << std::endl << "stringPTR : " << &stringPTR << std::endl;
@@ -36,7 +36,7 @@ int main (void)
 
 	std::cout << std::endl << "string : " << s << std::endl;
 	std::cout << std::endl << "stringPTR : " << *stringPTR << std::endl;
-	std::cout << std::endl << "stringREF : " << stringREF << std::endl;
+	std::cout << std::endl << "stringREF : " << stringREF << std::endl;*/
 
 	return (0);
 }

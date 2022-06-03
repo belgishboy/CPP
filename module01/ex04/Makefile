@@ -1,6 +1,7 @@
-NAME	= BRAIN
+NAME	= Sed
 
 SRC	=	main.cpp \
+		replace.cpp \
 
 OBJ	= $(SRC:.cpp=.o)
 
@@ -17,7 +18,7 @@ $(NAME): $(SRC)
 grind: 
 	$(MAKE)
 	valgrind --leak-check=full ./$(NAME)
-	rm -rf $(NAME).dSYM
+	rm - rf $(NAME).dSYM/
 
 clean:
 	rm -rf $(OBJ)
@@ -26,6 +27,5 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
-
 
 .PHONY: all clean fclean re
