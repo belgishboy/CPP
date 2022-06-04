@@ -1,7 +1,7 @@
-NAME	= harlFilter
+NAME	= Fixed
 
 SRC	=	main.cpp \
-		Harl.cpp \
+		Fixed.cpp \
 
 OBJ	= $(SRC:.cpp=.o)
 

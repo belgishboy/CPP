@@ -22,15 +22,14 @@ class Fixed
 
 		Fixed & operator=(Fixed const & rhs);
 
-		bool operator==(Fixed const & rhs);
-
-		int getFoo (void) const;
+		int getRawBits (void) const;
+		void setRawBits (int const raw);
 
 	private :
-		int _foo;
+		int _num;
+		static const int _bits;
 
-};
+};	
 
 std::ostream & operator<<(std::ostream & o, Fixed const & i);
 #endif
-

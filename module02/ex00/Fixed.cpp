@@ -4,7 +4,7 @@
 /**
  * @brief Construct a new Fixed:: Fixed object
  */
-Fixed::Fixed ( void )
+Fixed::Fixed ( void ):_num(0)
 {
 	std::cout << std::endl << "Default Constructor called" << std::endl;
 	return ;
@@ -31,14 +31,25 @@ Fixed::~Fixed (void)
 }
 
 /**
- * @brief gets the _foo value
- * @return [int] the value of _foo
+ * @brief Get the Raw Bits value of object
+ * @return [int] _raw value of object
  */
-int Fixed::getFoo(void) const
+int Fixed::getRawBits (void) const
 {
-	return (this->_foo);
+	std::cout << "getRawBits member function called" << std::endl;
+	return (this->_num);
 }
 
+/**
+ * @brief Set the Raw Bits object
+ * @param raw [int const] value to be assigned to _raw
+ */
+void Fixed::setRawBits (int const raw)
+{
+	this->_num = raw;
+
+	return ;
+}
 /**
  * @brief Assigns the values of rhs to the instance
  * @param rhs values to be copied
@@ -50,25 +61,10 @@ Fixed & Fixed::operator=(Fixed const & rhs)
 
 	if (this != &rhs)
 	{
-		this->_foo = rhs.getFoo();
+		this->setRawBits(rhs.getRawBits());
 	}
 
 	return (*this);
-}
-
-/**
- * @brief checks if the values of two class instances are the same
- * 
- * @param rhs class instance being checked against
- * @return [true] if all members of each class are equal
- * @return [false] if not all members of each class are equal
- */
-bool Fixed::operator==(Fixed const & rhs)
-{
-	if (this->_foo != rhs.getFoo())
-		return (false);
-
-	return (true);
 }
 
 /**
@@ -79,6 +75,6 @@ bool Fixed::operator==(Fixed const & rhs)
  */
 std::ostream & operator<<(std::ostream & o, Fixed const & i)
 {
-	o << "The value of _foo is : " << i.getFoo() << std::endl;
+	o << "The value of _raw is : " << i.getRawBits() << std::endl;
 	return (o);
 }
