@@ -1,6 +1,6 @@
 
-#ifndef HARL_H
-# define HARL_H
+#ifndef SAMPLE_H
+# define SAMPLE_H
 
 
 //LIBRARIES
@@ -11,8 +11,8 @@
 # include <cstdlib>
 # include <fstream>
 
-// INCLUDES
+//INCLUDES
 
-# include "Harl.hpp"
+# include "Sample.hpp"
 
 #endif
