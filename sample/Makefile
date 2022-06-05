@@ -28,3 +28,6 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+test:
+	$(CC) $(FLAGS) test.cpp -o test
