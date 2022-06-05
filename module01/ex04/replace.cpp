@@ -17,7 +17,7 @@ void	replace( std::ifstream &ifs, std::ofstream &newFile, std::string s1, std::s
 	while (ifs.good())
 	{
 		std::getline (ifs, line, '\n');
-		if (line.find(s1) != std::string::npos)
+		while (line.find(s1) != std::string::npos)
 		{
 			pos = line.find(s1);
 			line.erase(pos, s1.length());

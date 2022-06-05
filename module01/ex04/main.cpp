@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 	std::string fname;
 	fname.append(argv[1]);
 	fname.append(".replace");
-	std::ofstream newFile(fname);
+	std::ofstream newFile(fname.c_str());
 	replace(ifs, newFile, argv[2], argv[3]);
 
 	ifs.close();
