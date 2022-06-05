@@ -22,6 +22,25 @@ Fixed::Fixed (Fixed const & src)
 }
 
 /**
+ * @brief Construct a new Fixed:: Fixed object with an int
+ * 
+ * @param num [int] value to be assigned to _num
+ */
+Fixed::Fixed ( const int num )
+{
+	this->_num = num * (1 << this->_bits);
+	std::cout << std::endl << "Int Constructor called" << std::endl;
+	return ;
+}
+
+Fixed::Fixed ( const float fnum )
+{
+	this->_num = roundf(fnum * (1 << this->_bits));
+	std::cout << std::endl << "Float Constructor called" << std::endl;
+	return ;
+}
+
+/**
  * @brief Destroy the Fixed:: Fixed object
  */
 Fixed::~Fixed (void)
@@ -36,7 +55,7 @@ Fixed::~Fixed (void)
  */
 int Fixed::getRawBits (void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	//std::cout << "getRawBits member function called" << std::endl;
 	return (this->_num);
 }
 
@@ -50,6 +69,35 @@ void Fixed::setRawBits (int const raw)
 
 	return ;
 }
+
+/**
+ * @brief converts Fixed::_num fixed-point value to an floating-point value
+ * 
+ * @return [float] floating-point value of Fixed::_num
+ */
+float Fixed::toFloat(void) const
+{
+	float f;
+
+	f = (float)(this->getRawBits()) / (float)(1 << this->_bits);
+
+	return (f);
+}
+
+/**
+ * @brief converts Fixed::_num fixed-point value to an integer value
+ * 
+ * @return [int] integer value of Fixed::_num
+ */
+int Fixed::toInt(void) const
+{
+	int num;
+
+	num = this->_num / (1 << this->_bits);
+
+	return (num);
+}
+
 /**
  * @brief Assigns the values of rhs to the instance
  * @param rhs values to be copied
@@ -75,6 +123,6 @@ Fixed & Fixed::operator=(Fixed const & rhs)
  */
 std::ostream & operator<<(std::ostream & o, Fixed const & i)
 {
-	o << "The value of _raw is : " << i.getRawBits() << std::endl;
+	o << i.toFloat();
 	return (o);
 }

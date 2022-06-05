@@ -6,8 +6,7 @@
 //LIBRARIES
 
 # include <iostream>
-# include <iomanip>
-# include <string>
+# include <cmath>
 # include <cstdlib>
 # include <fstream>
 
