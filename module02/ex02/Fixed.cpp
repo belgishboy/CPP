@@ -51,7 +51,7 @@ Fixed::~Fixed (void)
 
 /**
  * @brief Get the Raw Bits value of object
- * @return [int] _raw value of object
+ * @return [int] _num value of object
  */
 int Fixed::getRawBits (void) const
 {
@@ -61,7 +61,7 @@ int Fixed::getRawBits (void) const
 
 /**
  * @brief Set the Raw Bits object
- * @param raw [int const] value to be assigned to _raw
+ * @param raw [int const] value to be assigned to _num
  */
 void Fixed::setRawBits (int const raw)
 {
@@ -121,7 +121,7 @@ Fixed & Fixed::operator=(Fixed const & rhs)
  * @return true if the object is greater than rhs
  * @return false if the object is not greater than rhs
  */
-bool Fixed::operator>(Fixed const & rhs)
+bool Fixed::operator>(Fixed const & rhs) const
 {
 	if (this->getRawBits() > rhs.getRawBits())
 		return (true);
@@ -134,7 +134,7 @@ bool Fixed::operator>(Fixed const & rhs)
  * @return true if the object is less than rhs
  * @return false if the object is not less than rhs
  */
-bool Fixed::operator<(Fixed const & rhs)
+bool Fixed::operator<(Fixed const & rhs) const
 {
 	if (this->getRawBits() < rhs.getRawBits())
 		return (true);
@@ -147,7 +147,7 @@ bool Fixed::operator<(Fixed const & rhs)
  * @return true if the object is greater than or equal to rhs
  * @return false if the object is not greater than or equal to rhs
  */
-bool Fixed::operator>=(Fixed const & rhs)
+bool Fixed::operator>=(Fixed const & rhs) const
 {
 	if (this->getRawBits() >= rhs.getRawBits())
 		return (true);
@@ -160,7 +160,7 @@ bool Fixed::operator>=(Fixed const & rhs)
  * @return true if the object is less than or equal to rhs
  * @return false if the object is not less than or equal to rhs
  */
-bool Fixed::operator<=(Fixed const & rhs)
+bool Fixed::operator<=(Fixed const & rhs) const
 {
 	if (this->getRawBits() <= rhs.getRawBits())
 		return (true);
@@ -173,7 +173,7 @@ bool Fixed::operator<=(Fixed const & rhs)
  * @return true if the object is equal to rhs
  * @return false if the object is not equal to rhs
  */
-bool Fixed::operator==(Fixed const & rhs)
+bool Fixed::operator==(Fixed const & rhs) const
 {
 	if (this->getRawBits() == rhs.getRawBits())
 		return (true);
@@ -186,12 +186,143 @@ bool Fixed::operator==(Fixed const & rhs)
  * @return true if the object is not equal to rhs
  * @return false if the object is equal to rhs
  */
-bool Fixed::operator!=(Fixed const & rhs)
+bool Fixed::operator!=(Fixed const & rhs) const
 {
 	if (this->getRawBits() != rhs.getRawBits())
 		return (true);
 	return (false);
 }
+
+/**
+ * @brief two objects added together
+ * @param rhs object being checked against
+ * @return [Fixed] object after the operation
+ */
+Fixed Fixed::operator+(Fixed const & rhs) const
+{
+	return (Fixed(this->toFloat() + rhs.toFloat()));
+}
+
+/**
+ * @brief one object subtracted by rhs
+ * @param rhs object being checked against
+ * @return [Fixed] object after the operation
+ */
+Fixed Fixed::operator-(Fixed const & rhs) const
+{
+	return (Fixed(this->toFloat() - rhs.toFloat()));
+}
+
+/**
+ * @brief two objects multiplied together
+ * @param rhs object being checked against
+ * @return [Fixed] object after the operation
+ */
+Fixed Fixed::operator*(Fixed const & rhs) const
+{
+	return (Fixed(this->toFloat() * rhs.toFloat()));
+}
+
+/**
+ * @brief one objects devided by the other
+ * @param rhs object being checked against
+ * @return [Fixed] object after the operation
+ */
+Fixed Fixed::operator/(Fixed const & rhs) const
+{
+	return (Fixed(this->toFloat() / rhs.toFloat()));
+}
+
+/**
+ * @brief post-increment on the instance of Fixed
+ * @return [Fixed&] 
+ */
+Fixed & Fixed::operator++(void)
+{
+	this->_num ++;
+
+	return (*this);
+}
+
+/**
+ * @brief post-decrement on the instance of Fixed
+ * @return [Fixed&] 
+ */
+Fixed & Fixed::operator--(void)
+{
+	this->_num --;
+
+	return (*this);
+}
+
+/**
+ * @brief pre-increment on the instance of Fixed
+ * @return [Fixed ]
+ */
+Fixed Fixed::operator++(int)
+{
+	Fixed ref(*this);
+	++*this;
+
+	return (ref);
+}
+
+/**
+ * @brief pre-decrement on the instance of Fixed
+ * @return [Fixed ]
+ */
+Fixed Fixed::operator--(int)
+{
+	Fixed ref(*this);
+	--*this;
+
+	return (ref);
+}
+
+/**
+ * @brief Checks which of the two instances is smaller
+ * @param f1 first instance
+ * @param f2 secound instance
+ * @return [Fixed& ]
+ */
+Fixed & Fixed::min(Fixed & f1, Fixed & f2)
+{
+	return (f1 < f2 ? f1 : f2);
+}
+
+/**
+ * @brief Checks which of the two instances is smaller
+ * @param f1 first instance
+ * @param f2 secound instance
+ * @return [const Fixed&] 
+ */
+const Fixed & Fixed::min(Fixed const & f1, Fixed const & f2)
+{
+	return (f1 < f2 ? f1 : f2);
+}
+
+/**
+ * @brief Checks which of the two instances is bigger
+ * @param f1 first instance
+ * @param f2 secound instance
+ * @return [Fixed& ]
+ */
+Fixed & Fixed::max(Fixed & f1, Fixed & f2)
+{
+	return (f1 > f2 ? f1 : f2);
+}
+
+/**
+ * @brief Checks which of the two instances is bigger
+ * @param f1 first instance
+ * @param f2 secound instance
+ * @return [const Fixed&] 
+ */
+const Fixed & Fixed::max(Fixed const & f1, Fixed const & f2)
+{
+	return (f1 > f2 ? f1 : f2);
+}
+
 
 /**
  * @brief outputs the contents of `i` into o
@@ -204,3 +335,5 @@ std::ostream & operator<<(std::ostream & o, Fixed const & i)
 	o << i.toFloat();
 	return (o);
 }
+
+const int Fixed::_bits = 8;
