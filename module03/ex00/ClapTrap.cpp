@@ -106,7 +106,7 @@ void ClapTrap::attack(const std::string& target)
 {
 	if (this->_ep > 0)
 	{
-		this->_ep =- 1;
+		this->_ep -= 1;
 		//target.takeDamage(this->_att);
 		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_att << " points of damage." << std::endl;
 	}
@@ -122,7 +122,7 @@ void ClapTrap::attack(const std::string& target)
  */
 void ClapTrap::takeDamage(unsigned int amount)//what if _hp below 0??
 {
-	this->_hp =- amount;
+	this->_hp -= amount;
 	std::cout << "ClapTrap " << this->_name << " takes " << amount << " points of damage." << std::endl;
 
 	return ;
@@ -136,8 +136,8 @@ void ClapTrap::beRepaired(unsigned int amount)//can hp go above start value ??
 {
 	if (this->_ep > 0)
 	{
-		this->_ep =- 1;
-		this->_hp =+ amount;
+		this->_ep -= 1;
+		this->_hp += amount;
 		std::cout << "ClapTrap " << this->_name << " repairs " << amount << " points of damage." << std::endl;
 	}
 	else
@@ -173,10 +173,10 @@ bool ClapTrap::operator==(ClapTrap const & rhs) const
  */
 std::ostream & operator<<(std::ostream & o, ClapTrap const & i)
 {
-	if (i.getName().length() > 10)
-		o << "|" << i.getName().substr(0, 9) << "." << "|" << std::endl;
+	if (i.getName().length() > 15)
+		o << "|" << i.getName().substr(0, 14) << "." << "|" << std::endl;
 	else
-		o << std::setw(10) << i.getName() << "|" << std::endl;
+		o << "|" << std::setw(15) << i.getName() << "|" << std::endl;
 	o << "| HP     : " << std::setw(5) << i.getHP() << "|" << std::endl;
 	o << "| EP     : " << std::setw(5) << i.getEP() << "|" << std::endl;
 	o << "| Attack : " << std::setw(5) << i.getATT() << "|" << std::endl;
