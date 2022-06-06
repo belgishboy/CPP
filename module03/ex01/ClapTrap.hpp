@@ -23,6 +23,13 @@ class ClapTrap
 
 		bool operator==(ClapTrap const & rhs) const;
 
+		//SETTERS
+		void setName(std::string const name);
+		void setHP(const int hp);
+		void setEP(const int ep);
+		void setATT(const int att);
+
+		//GETTERS
 		std::string getName (void) const;
 		int getHP (void) const;
 		int getEP (void) const;

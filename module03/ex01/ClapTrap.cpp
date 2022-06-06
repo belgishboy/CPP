@@ -7,7 +7,7 @@
  */
 ClapTrap::ClapTrap ( void ): _name("Nobody"), _hp(10), _ep(10), _att(0)
 {
-	std::cout << std::endl << "Default Constructor for " << _name << " called" << std::endl;
+	std::cout << std::endl << "Default ClapTrap Constructor for " << _name << " called" << std::endl;
 	return ;
 }
 
@@ -18,7 +18,7 @@ ClapTrap::ClapTrap ( void ): _name("Nobody"), _hp(10), _ep(10), _att(0)
  */
 ClapTrap::ClapTrap (std::string const name) : _name(name), _hp(10), _ep(10), _att(0)
 {
-	std::cout << std::endl << "Parametric Constructor for " << _name << " called" << std::endl;
+	std::cout << std::endl << "Parametric ClapTrap Constructor for " << _name << " called" << std::endl;
 	return ;
 }
 
@@ -41,6 +41,55 @@ ClapTrap::~ClapTrap (void)
 	std::cout << std::endl << "Destructor for " << _name << " Called" << std::endl;
 	return ;
 }
+
+//**SETTERS**//
+
+/**
+ * @brief Set the Name member
+ * @param name [std::string const]
+ */
+void ClapTrap::setName(std::string const name)
+{
+	this->_name = name;
+
+	return ;
+}
+
+/**
+ * @brief Set the _hp member
+ * @param hp [int]
+ */
+void ClapTrap::setHP(const int hp)
+{
+	this->_hp = hp;
+
+	return ;
+}
+
+/**
+ * @brief Set the _ep member
+ * @param ep [int]
+ */
+void ClapTrap::setEP(const int ep)
+{
+	this->_ep = ep;
+
+	return ;
+}
+
+/**
+ * @brief Set the _att member
+ * @param att[int] 
+ */
+void ClapTrap::setATT(const int att)
+{
+	this->_att = att;
+
+	return ;
+}
+
+
+//**GETTERS**//
 
 /**
  * @brief gets the _name of the instance
