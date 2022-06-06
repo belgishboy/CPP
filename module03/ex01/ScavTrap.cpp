@@ -35,7 +35,7 @@ ScavTrap::ScavTrap (std::string const name)
  */
 ScavTrap::ScavTrap (ScavTrap const & src)
 {
-	std::cout << std::endl << "Copy Constructor called" << std::endl;
+	std::cout << std::endl << "Copy ScavTrap Constructor called" << std::endl;
 	*this = src;
 	return ;
 }
@@ -94,11 +94,14 @@ void ScavTrap::guardGate(void)
  */
 ScavTrap & ScavTrap::operator=(ScavTrap const & rhs)
 {
-	std::cout << std::endl << "Assignment operator called" << std::endl;
+	std::cout << std::endl << "ScavTrap Assignment operator called" << std::endl;
 
 	if (this != &rhs)
 	{
-		(ClapTrap)*this = (ClapTrap)rhs;
+		this->setName(rhs.getName());
+		this->setHP(rhs.getHP());
+		this->setEP(rhs.getEP());
+		this->setATT(rhs.getATT());
 	}
 
 	return (*this);

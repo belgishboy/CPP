@@ -35,7 +35,7 @@ FragTrap::FragTrap (std::string const name)
  */
 FragTrap::FragTrap (FragTrap const & src)
 {
-	std::cout << std::endl << "Copy Constructor called" << std::endl;
+	std::cout << std::endl << "Copy FragTrap Constructor called" << std::endl;
 	*this = src;
 	return ;
 }
@@ -74,15 +74,14 @@ void FragTrap::attack(const std::string& target)
 }
 
 /**
- * @brief Informs that it is now in Gate Keeper mode
- * 
+ * @brief gives everyone high fives
  */
-void FragTrap::guardGate(void)
+void FragTrap::highFivesGuys(void)
 {
 	if (this->getHP() <= 0)
 		std::cout << "FragTrap " << this->getName() << " is dead." << std::endl;
 	else
-		std::cout << "FragTrap " << this->getName() << " is in Gate Keeper mode." << std::endl;
+		std::cout << "FragTrap " << this->getName() << " is giving everyone high fives. WOOOO." << std::endl;
 
 	return ;
 }
@@ -94,11 +93,14 @@ void FragTrap::guardGate(void)
  */
 FragTrap & FragTrap::operator=(FragTrap const & rhs)
 {
-	std::cout << std::endl << "Assignment operator called" << std::endl;
+	std::cout << std::endl << "FragTrap Assignment operator called" << std::endl;
 
 	if (this != &rhs)
 	{
-		(ClapTrap)*this = (ClapTrap)rhs;
+		this->setName(rhs.getName());
+		this->setHP(rhs.getHP());
+		this->setEP(rhs.getEP());
+		this->setATT(rhs.getATT());
 	}
 
 	return (*this);

@@ -21,7 +21,7 @@ class FragTrap : public ClapTrap
 
 		//CLASS SPECIFIC
 		void attack(const std::string& target);
-		void guardGate(void);
+		void highFivesGuys(void);
 };
 
 std::ostream & operator<<(std::ostream & o, FragTrap const & i);

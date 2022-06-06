@@ -23,5 +23,12 @@ int main( void )
 	v.takeDamage(100);
 	v.guardGate();
 
+	ScavTrap s("Saskia");
+
+	std::cout << s << std::endl;
+	s = v;
+
+	std::cout << "after : " << std::endl << s << std::endl;
+
 	return (0);
 }

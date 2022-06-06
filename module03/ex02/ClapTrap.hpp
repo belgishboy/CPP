@@ -4,7 +4,10 @@
 
 //INCLUDE
 
-# include "Trap.h"
+# include <iostream>
+# include <cmath>
+# include <cstdlib>
+# include <fstream>
 
 // CLASS
 
