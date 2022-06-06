@@ -1,32 +1,32 @@
 
-#include "Sample.h"
+#include "ScavTrap.hpp"
 
 /**
- * @brief Construct a new Sample:: Sample object
+ * @brief Construct a new ScavTrap:: ScavTrap object
  * Also zeros _foo
  */
-Sample::Sample ( void ): _foo(0)
+ScavTrap::ScavTrap ( void ): _foo(0)
 {
 	std::cout << std::endl << "Default Constructor called" << std::endl;
 	return ;
 }
 
 /**
- * @brief Construct a new Sample:: Sample object
+ * @brief Construct a new ScavTrap:: ScavTrap object
  * and assgins _foo the value of n
  * @param n value to be assgined to _foo
  */
-Sample::Sample (int const n) : _foo(n)
+ScavTrap::ScavTrap (int const n) : _foo(n)
 {
 	std::cout << std::endl << "Parametric Constructor called" << std::endl;
 	return ;
 }
 
 /**
- * @brief Construct a new Sample:: Sample object as a copy of src
+ * @brief Construct a new ScavTrap:: ScavTrap object as a copy of src
  * @param src instance to be copied
  */
-Sample::Sample (Sample const & src)
+ScavTrap::ScavTrap (ScavTrap const & src)
 {
 	std::cout << std::endl << "Copy Constructor called" << std::endl;
 	*this = src;
@@ -34,9 +34,9 @@ Sample::Sample (Sample const & src)
 }
 
 /**
- * @brief Destroy the Sample:: Sample object
+ * @brief Destroy the ScavTrap:: ScavTrap object
  */
-Sample::~Sample (void)
+ScavTrap::~ScavTrap (void)
 {
 	std::cout << std::endl << "Destructor Called" << std::endl;
 	return ;
@@ -46,7 +46,7 @@ Sample::~Sample (void)
  * @brief gets the _foo value
  * @return [int] the value of _foo
  */
-int Sample::getFoo(void) const
+int ScavTrap::getFoo(void) const
 {
 	return (this->_foo);
 }
@@ -54,9 +54,9 @@ int Sample::getFoo(void) const
 /**
  * @brief Assigns the values of rhs to the instance
  * @param rhs values to be copied
- * @return [Sample&] ref to the instance
+ * @return [ScavTrap&] ref to the instance
  */
-Sample & Sample::operator=(Sample const & rhs)
+ScavTrap & ScavTrap::operator=(ScavTrap const & rhs)
 {
 	std::cout << std::endl << "Assignment operator called" << std::endl;
 
@@ -75,7 +75,7 @@ Sample & Sample::operator=(Sample const & rhs)
  * @return [true] if all members of each class are equal
  * @return [false] if not all members of each class are equal
  */
-bool Sample::operator==(Sample const & rhs) const
+bool ScavTrap::operator==(ScavTrap const & rhs) const
 {
 	if (this->_foo != rhs.getFoo())
 		return (false);
@@ -89,7 +89,7 @@ bool Sample::operator==(Sample const & rhs) const
  * @param i instance that will be outputted
  * @return [std::ostream&] where to be outputted
  */
-std::ostream & operator<<(std::ostream & o, Sample const & i)
+std::ostream & operator<<(std::ostream & o, ScavTrap const & i)
 {
 	o << "The value of _foo is : " << i.getFoo() << std::endl;
 	return (o);

@@ -16,7 +16,7 @@ class Sample
 
 		Sample & operator=(Sample const & rhs);	//CANONICAL: To assign the values of one class to another
 
-		bool operator==(Sample const & rhs);
+		bool operator==(Sample const & rhs) const;
 
 		int getFoo (void) const;
 
