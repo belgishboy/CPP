@@ -38,7 +38,7 @@ ClapTrap::ClapTrap (ClapTrap const & src)
  */
 ClapTrap::~ClapTrap (void)
 {
-	std::cout << std::endl << "Destructor for " << _name << " Called" << std::endl;
+	std::cout << std::endl << "ClapTrap Destructor for " << _name << " Called" << std::endl;
 	return ;
 }
 
@@ -153,14 +153,18 @@ ClapTrap & ClapTrap::operator=(ClapTrap const & rhs)
  */
 void ClapTrap::attack(const std::string& target)
 {
-	if (this->_ep > 0)
-	{
-		this->_ep -= 1;
-		//target.takeDamage(this->_att);
-		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_att << " points of damage." << std::endl;
-	}
+	if (this->_hp <= 0)
+		std::cout << "ClapTrap " << this->_name << " is dead." << std::endl;
 	else
-		std::cout << "ClapTrap " << this->_name << " doesn't have enough EP." << std::endl;
+	{
+		if (this->_ep > 0)
+		{
+			this->_ep -= 1;
+			std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_att << " points of damage." << std::endl;
+		}
+		else
+			std::cout << "ClapTrap " << this->_name << " doesn't have enough EP." << std::endl;
+	}
 
 	return ;
 }
@@ -169,10 +173,15 @@ void ClapTrap::attack(const std::string& target)
  * @brief causes instance to 'take' `amount of damage
  * @param amount damage that will be taken
  */
-void ClapTrap::takeDamage(unsigned int amount)//what if _hp below 0??
+void ClapTrap::takeDamage(unsigned int amount)
 {
-	this->_hp -= amount;
-	std::cout << "ClapTrap " << this->_name << " takes " << amount << " points of damage." << std::endl;
+	if (this->_hp <= 0)
+		std::cout << "ClapTrap " << this->_name << " is dead." << std::endl;
+	else
+	{
+		this->_hp -= amount;
+		std::cout << "ClapTrap " << this->_name << " takes " << amount << " points of damage." << std::endl;
+	}
 
 	return ;
 }
@@ -181,16 +190,21 @@ void ClapTrap::takeDamage(unsigned int amount)//what if _hp below 0??
  * @brief causes instance to 'repair' `amount of damage
  * @param amount damage that will be repaired
  */
-void ClapTrap::beRepaired(unsigned int amount)//can hp go above start value ??
+void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->_ep > 0)
-	{
-		this->_ep -= 1;
-		this->_hp += amount;
-		std::cout << "ClapTrap " << this->_name << " repairs " << amount << " points of damage." << std::endl;
-	}
+	if (this->_hp <= 0)
+		std::cout << "ClapTrap " << this->_name << " is dead." << std::endl;
 	else
-		std::cout << "ClapTrap " << this->_name << " doesn't have enough EP." << std::endl;
+	{
+		if (this->_ep > 0)
+		{
+			this->_ep -= 1;
+			this->_hp += amount;
+			std::cout << "ClapTrap " << this->_name << " repairs " << amount << " points of damage." << std::endl;
+		}
+		else
+			std::cout << "ClapTrap " << this->_name << " doesn't have enough EP." << std::endl;
+	}
 
 	return ;
 }

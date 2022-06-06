@@ -3,22 +3,29 @@
 
 /**
  * @brief Construct a new ScavTrap:: ScavTrap object
- * Also zeros _foo
+ * _name = Nobody; _hp = 100; _ep = 50; _att = 20
  */
-ScavTrap::ScavTrap ( void ): _foo(0)
+ScavTrap::ScavTrap ( void )
 {
-	std::cout << std::endl << "Default Constructor called" << std::endl;
+	setHP(100);
+	setEP(50);
+	setATT(20);
+	std::cout << std::endl << "Default ScavTrap Constructor for " << getName() << " called" << std::endl;
 	return ;
 }
 
 /**
- * @brief Construct a new ScavTrap:: ScavTrap object
- * and assgins _foo the value of n
- * @param n value to be assgined to _foo
+ * @brief Construct a new ScavTrap:: ScavTrap object with `name 
+ * _name = name; _hp = 100; _ep = 50; _att = 20
+ * @param name string to be given to _name
  */
-ScavTrap::ScavTrap (int const n) : _foo(n)
+ScavTrap::ScavTrap (std::string const name)
 {
-	std::cout << std::endl << "Parametric Constructor called" << std::endl;
+	setName(name);
+	setHP(100);
+	setEP(50);
+	setATT(20);
+	std::cout << std::endl << "Parametric ScavTrap Constructor for " << getName() << " called" << std::endl;
 	return ;
 }
 
@@ -38,17 +45,46 @@ ScavTrap::ScavTrap (ScavTrap const & src)
  */
 ScavTrap::~ScavTrap (void)
 {
-	std::cout << std::endl << "Destructor Called" << std::endl;
+	std::cout << std::endl << "ScavTrap Destructor for " << getName() << " Called" << std::endl;
+	return ;
+}
+
+//**CLASS SPECIFIC**//
+
+/**
+ * @brief instance 'attacks' `target
+ * @param target name of the target
+ */
+void ScavTrap::attack(const std::string& target)
+{
+	if (this->getHP() <= 0)
+		std::cout << "ScavTrap " << this->getName() << " is dead." << std::endl;
+	else
+	{
+		if (this->getEP() > 0)
+		{
+			this->setEP(this->getEP() - 1);
+			std::cout << "ScavTrap " << this->getName() << " attacks " << target << ", causing " << this->getATT() << " points of damage." << std::endl;
+		}
+		else
+			std::cout << "ScavTrap " << this->getName() << " doesn't have enough EP." << std::endl;
+	}
+
 	return ;
 }
 
 /**
- * @brief gets the _foo value
- * @return [int] the value of _foo
+ * @brief Informs that it is now in Gate Keeper mode
+ * 
  */
-int ScavTrap::getFoo(void) const
+void ScavTrap::guardGate(void)
 {
-	return (this->_foo);
+	if (this->getHP() <= 0)
+		std::cout << "ScavTrap " << this->getName() << " is dead." << std::endl;
+	else
+		std::cout << "ScavTrap " << this->getName() << " is in Gate Keeper mode." << std::endl;
+
+	return ;
 }
 
 /**
@@ -62,7 +98,7 @@ ScavTrap & ScavTrap::operator=(ScavTrap const & rhs)
 
 	if (this != &rhs)
 	{
-		this->_foo = rhs.getFoo();
+		(ClapTrap)*this = (ClapTrap)rhs;
 	}
 
 	return (*this);
@@ -77,9 +113,9 @@ ScavTrap & ScavTrap::operator=(ScavTrap const & rhs)
  */
 bool ScavTrap::operator==(ScavTrap const & rhs) const
 {
-	if (this->_foo != rhs.getFoo())
+	if (!((ClapTrap)*this == (ClapTrap)rhs))
 		return (false);
-
+	
 	return (true);
 }
 
@@ -91,6 +127,6 @@ bool ScavTrap::operator==(ScavTrap const & rhs) const
  */
 std::ostream & operator<<(std::ostream & o, ScavTrap const & i)
 {
-	o << "The value of _foo is : " << i.getFoo() << std::endl;
+	o << (ClapTrap)i << std::endl;
 	return (o);
 }
