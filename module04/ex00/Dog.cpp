@@ -64,7 +64,7 @@ bool Dog::operator==(Dog const & rhs) const
 	return (true);
 }
 
-void Dog::makeSound(void)
+void Dog::makeSound(void) const
 {
 	std::cout << "BARK BARK." << std::endl;
 }

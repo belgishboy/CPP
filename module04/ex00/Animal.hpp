@@ -23,6 +23,8 @@ class Animal
 		//**Getters**//
 		std::string getType (void) const;
 
+		void virtual makeSound(void) const;
+
 	protected :
 		std::string _type;
 

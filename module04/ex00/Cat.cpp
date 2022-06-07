@@ -64,7 +64,7 @@ bool Cat::operator==(Cat const & rhs) const
 	return (true);
 }
 
-void Cat::makeSound(void)
+void Cat::makeSound(void) const
 {
 	std::cout << "MEOW." << std::endl;
 }

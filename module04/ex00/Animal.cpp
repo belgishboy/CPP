@@ -87,6 +87,11 @@ bool Animal::operator==(Animal const & rhs) const
 	return (true);
 }
 
+void Animal::makeSound(void) const
+{
+	std::cout << "This Animal doesnt know what sound to make." << std::endl;
+}
+
 /**
  * @brief outputs the contents of `i` into o
  * @param o out stream
