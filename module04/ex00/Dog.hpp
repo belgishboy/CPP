@@ -2,11 +2,11 @@
 #ifndef DOG_HPP
 # define DOG_HPP
 
-//# include "Ploy.h"
+# include "Poly.h"
 
 // CLASS
 
-class Dog
+class Dog : public Animal
 {
 	public :
 		Dog (void);							//CANONICAL: Default Constructor
@@ -17,14 +17,7 @@ class Dog
 
 		bool operator==(Dog const & rhs) const;
 
-		//**SETTERS**//
-		void setType(std::string const type);
-		
-		//**Getters**//
-		std::string getType (void) const;
-
-	protected :
-		std::string _type;
+		void makeSound(void);
 
 };
 
