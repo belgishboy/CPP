@@ -8,6 +8,7 @@
 Dog::Dog ( void )
 {
 	this->setType("Dog");
+	_brain = new Brain();
 	std::cout << std::endl << "Default Dog Constructor called" << std::endl;
 	return ;
 }
@@ -28,6 +29,7 @@ Dog::Dog (Dog const & src)
  */
 Dog::~Dog (void)
 {
+	delete _brain;
 	std::cout << std::endl << "Dog Destructor Called" << std::endl;
 	return ;
 }

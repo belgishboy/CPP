@@ -8,6 +8,7 @@
 Cat::Cat ( void )
 {
 	this->setType("Cat");
+	_brain = new Brain();
 	std::cout << std::endl << "Default Cat Constructor called" << std::endl;
 	return ;
 }
@@ -28,6 +29,7 @@ Cat::Cat (Cat const & src)
  */
 Cat::~Cat (void)
 {
+	delete _brain;
 	std::cout << std::endl << "Cat Destructor Called" << std::endl;
 	return ;
 }

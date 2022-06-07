@@ -19,6 +19,8 @@ class Cat : public Animal
 
 		void makeSound(void) const;
 
+		private :
+			Brain * _brain;
 };
 
 std::ostream & operator<<(std::ostream & o, Cat const & i);
