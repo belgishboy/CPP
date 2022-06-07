@@ -7,7 +7,7 @@
  */
 Sample::Sample ( void ): _foo(0)
 {
-	std::cout << std::endl << "Default Constructor called" << std::endl;
+	std::cout << std::endl << "Default Sample Constructor called" << std::endl;
 	return ;
 }
 
@@ -18,7 +18,7 @@ Sample::Sample ( void ): _foo(0)
  */
 Sample::Sample (int const n) : _foo(n)
 {
-	std::cout << std::endl << "Parametric Constructor called" << std::endl;
+	std::cout << std::endl << "Parametric Sample Constructor called" << std::endl;
 	return ;
 }
 
@@ -28,7 +28,7 @@ Sample::Sample (int const n) : _foo(n)
  */
 Sample::Sample (Sample const & src)
 {
-	std::cout << std::endl << "Copy Constructor called" << std::endl;
+	std::cout << std::endl << "Copy Sample Constructor called" << std::endl;
 	*this = src;
 	return ;
 }
@@ -38,7 +38,7 @@ Sample::Sample (Sample const & src)
  */
 Sample::~Sample (void)
 {
-	std::cout << std::endl << "Destructor Called" << std::endl;
+	std::cout << std::endl << "Sample Destructor Called" << std::endl;
 	return ;
 }
 
@@ -58,7 +58,7 @@ int Sample::getFoo(void) const
  */
 Sample & Sample::operator=(Sample const & rhs)
 {
-	std::cout << std::endl << "Assignment operator called" << std::endl;
+	std::cout << std::endl << "Sample Assignment operator called" << std::endl;
 
 	if (this != &rhs)
 	{

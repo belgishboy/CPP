@@ -1,6 +1,8 @@
-NAME	= Sample
+NAME	= Animal
 
 SRC	=	main.cpp \
+		Dog.cpp	\
+		Cat.cpp	\
 		$(NAME).cpp \
 
 OBJ	= $(SRC:.cpp=.o)
@@ -28,6 +30,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-
-test:
-	$(CC) $(FLAGS) test.cpp -o test
