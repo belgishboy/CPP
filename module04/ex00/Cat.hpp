@@ -17,7 +17,7 @@ class Cat : public Animal
 
 		bool operator==(Cat const & rhs) const;
 
-		void virtual makeSound(void) const;
+		void makeSound(void) const;
 
 };
 

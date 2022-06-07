@@ -11,7 +11,7 @@ class Animal
 	public :
 		Animal (void);							//CANONICAL: Default Constructor
 		Animal (Animal const & src);			//CANONICAL: Constructor by copy
-		~Animal (void);							//CANONICAL: Default Destructor
+		virtual ~Animal (void);							//CANONICAL: Default Destructor
 
 		Animal & operator=(Animal const & rhs);	//CANONICAL: To assign the values of one class to another
 
