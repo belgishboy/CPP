@@ -4,6 +4,8 @@ SRC	=	main.cpp \
 		Dog.cpp	\
 		Cat.cpp	\
 		$(NAME).cpp \
+		Wrong$(NAME).cpp \
+		WrongCat.cpp \
 
 OBJ	= $(SRC:.cpp=.o)
 
