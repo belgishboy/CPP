@@ -96,8 +96,9 @@ AForm & AForm::operator=(AForm const & rhs)
 
 	if (this != &rhs)
 	{
-		this->~AForm();
-		*this = AForm(rhs);
+		//this->~AForm();
+		//*this = AForm(rhs);
+		this->_sign = rhs.getSign();
 	}
 
 	return (*this);
