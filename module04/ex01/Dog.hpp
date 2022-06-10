@@ -18,6 +18,7 @@ class Dog : public Animal
 		bool operator==(Dog const & rhs) const;
 
 		void makeSound(void) const;
+		std::string const getBrain (void) const;
 
 		private :
 			Brain * _brain;

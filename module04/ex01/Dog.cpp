@@ -7,9 +7,12 @@
  */
 Dog::Dog ( void )
 {
+	std::cout << std::endl << "Default Dog Constructor called" << std::endl;
 	this->setType("Dog");
 	_brain = new Brain();
-	std::cout << std::endl << "Default Dog Constructor called" << std::endl;
+	_brain->setIdea("WOOF", 0);
+	_brain->setIdea("Must Get Squirrel", 1);
+	
 	return ;
 }
 
@@ -66,6 +69,12 @@ bool Dog::operator==(Dog const & rhs) const
 	return (true);
 }
 
+std::string const Dog::getBrain (void) const
+{
+	return (this->_brain->getIdea(1));
+}
+
+
 void Dog::makeSound(void) const
 {
 	std::cout << "BARK BARK." << std::endl;
@@ -79,6 +88,8 @@ void Dog::makeSound(void) const
  */
 std::ostream & operator<<(std::ostream & o, Dog const & i)
 {
+	i.makeSound();
 	o << (Animal)i;
+	o << i.getBrain();
 	return (o);
 }

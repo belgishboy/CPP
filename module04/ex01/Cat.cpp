@@ -7,9 +7,10 @@
  */
 Cat::Cat ( void )
 {
+	std::cout << std::endl << "Default Cat Constructor called" << std::endl;
 	this->setType("Cat");
 	_brain = new Brain();
-	std::cout << std::endl << "Default Cat Constructor called" << std::endl;
+	
 	return ;
 }
 

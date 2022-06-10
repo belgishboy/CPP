@@ -1,11 +1,11 @@
 NAME	= Animal
 
-SRC	=	main.cpp \
+SRC	=	$(NAME).cpp \
+		Brain.cpp \
 		Dog.cpp	\
 		Cat.cpp	\
-		$(NAME).cpp \
-		Brain.cpp \
-		
+		main.cpp \
+
 OBJ	= $(SRC:.cpp=.o)
 
 CC		= clang++

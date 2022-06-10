@@ -73,7 +73,7 @@ std::string Brain::getIdea(int const i) const
 	if ( i < 0 || i > 99)
 	{
 		std::cout << i << " is an invalid idea number." << std::endl;
-		return ;
+		return NULL;
 	}
 	return (this->_ideas[i]);
 }
