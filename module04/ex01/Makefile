@@ -20,7 +20,7 @@ $(NAME): $(SRC)
 
 grind: 
 	$(MAKE)
-	valgrind --leak-check=full ./$(NAME)
+	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
 
 clean:
 	rm -rf $(OBJ)
