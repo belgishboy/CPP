@@ -13,6 +13,9 @@
 
 # include "Bureaucrat.hpp"
 # include "AForm.hpp"
+# include "PresidentialPardonForm.hpp"
+# include "RobotomyCreationForm.hpp"
+# include "ShrubberyCreationForm.hpp"
 
 
 #endif

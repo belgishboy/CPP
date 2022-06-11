@@ -5,7 +5,7 @@
  * @brief Construct a new AForm:: AForm object
  */
 AForm::AForm ( void )
-	: _name("Nobody"), _sign(0), _grade_s(150), _grade_e(150)
+	: _name("Standard"), _sign(0), _grade_s(150), _grade_e(150), _target("Default")
 {
 	std::cout << std::endl << "Default AForm Constructor called" << std::endl;
 	return ;
@@ -15,8 +15,8 @@ AForm::AForm ( void )
  * @brief Construct a new AForm:: AForm object
  * @param s value to be assgined to _grade_s
  */
-AForm::AForm (std::string const name, int const s, int const e)
-	: _name(name), _sign(0), _grade_s(s), _grade_e(e)
+AForm::AForm (std::string const name, int const s, int const e, std::string const target)
+	: _name(name), _sign(0), _grade_s(s), _grade_e(e), _target(target)
 {
 	if (s < 1 || e < 1)
 		throw AForm::GradeTooHighException();
@@ -67,6 +67,11 @@ bool AForm::getSign (void) const
 	return (this->_sign);
 }
 
+std::string const AForm::getTarget (void) const
+{
+	return (this->_target);
+}
+
 void AForm::beSigned(Bureaucrat const & b)
 {
 	if (b.getGrade() > this->_grade_s)
@@ -83,6 +88,11 @@ char const * AForm::GradeTooHighException::what() const throw()
 char const * AForm::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low.");
+}
+
+char const * AForm::FormCantSign::what() const throw()
+{
+	return ("Form hasn't been signed.");
 }
 
 /**
@@ -120,6 +130,8 @@ bool AForm::operator==(AForm const & rhs) const
 	if (this->_sign != rhs.getSign())
 		return (false);
 	if (this->_name != rhs.getName())
+		return (false);
+	if (this->_target != rhs.getTarget())
 		return (false);
 
 	return (true);

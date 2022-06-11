@@ -16,10 +16,11 @@ class SCF : public AForm
 
 		SCF & operator=(SCF const & rhs);	//CANONICAL: To assign the values of one class to another
 
+		void execute(Bureaucrat const & executor) const;
+
 	private :
-		std::string const _target;
 
 };
 
-std::ostream & operator<<(std::ostream & o, SCF const & i);
+//std::ostream & operator<<(std::ostream & o, SCF const & i);
 #endif

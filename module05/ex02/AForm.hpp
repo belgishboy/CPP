@@ -12,7 +12,7 @@ class AForm
 {
 	public :
 		AForm (void);							//CANONICAL: Default Constructor
-		AForm (std::string const name, int const s, int const e);
+		AForm (std::string const name, int const s, int const e, std::string const target);
 		AForm (AForm const & src);			//CANONICAL: Constructor by copy
 		~AForm (void);							//CANONICAL: Default Destructor
 
@@ -20,13 +20,14 @@ class AForm
 
 		bool operator==(AForm const & rhs) const;
 
-		virtual std::string getName (void) const = 0;
+		virtual std::string getName (void) const;
 		int getGradeS (void) const;
 		int getGradeE (void) const;
 		bool getSign(void) const;
+		std::string const getTarget(void) const;
 
 		void beSigned(Bureaucrat const & b);
-
+		virtual void execute(Bureaucrat const & executor) const = 0;
 		class GradeTooHighException : public std::exception
 		{
 			public :
@@ -37,12 +38,18 @@ class AForm
 			public :
 				virtual const char* what() const throw();
 		};
+		class FormCantSign : public std::exception
+		{
+			public :
+				virtual const char* what() const throw();
+		};
 
 	private :
 		std::string const _name;
 		bool _sign;
 		int const _grade_s;
 		int const _grade_e;
+		std::string const _target;
 
 };
 
