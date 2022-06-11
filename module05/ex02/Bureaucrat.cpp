@@ -101,7 +101,7 @@ void Bureaucrat::executeForm(AForm const & form) const
 	{
 		form.execute(*this);
 	}
-	catch (AForm::GradeTooLowException& e)
+	catch (const std::exception& e)
 	{
 		std::cerr << this->_name << " couldn't excute the form " << form.getName() << " because " << e.what() << std::endl;
 		return ;

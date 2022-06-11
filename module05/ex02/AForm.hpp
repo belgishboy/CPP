@@ -14,7 +14,7 @@ class AForm
 		AForm (void);							//CANONICAL: Default Constructor
 		AForm (std::string const name, int const s, int const e, std::string const target);
 		AForm (AForm const & src);			//CANONICAL: Constructor by copy
-		~AForm (void);							//CANONICAL: Default Destructor
+		virtual ~AForm (void);							//CANONICAL: Default Destructor
 
 		AForm & operator=(AForm const & rhs);	//CANONICAL: To assign the values of one class to another
 

@@ -149,5 +149,6 @@ std::ostream & operator<<(std::ostream & o, AForm const & i)
 	o << "Grade to be signed : " << i.getGradeS() << std::endl;
 	o << "Grade to be exicuted : " << i.getGradeE() << std::endl;
 	o << "Status : 🖕" << std::endl;
+	o << "Target : " << i.getTarget();
 	return (o);
 }

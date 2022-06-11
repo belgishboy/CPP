@@ -41,7 +41,7 @@ PPF & PPF::operator=(PPF const & rhs)
 
 	if (this != &rhs)
 	{
-		this->~PPF();
+		this->PPF::~PPF();
 		*this = PPF(rhs);
 	}
 

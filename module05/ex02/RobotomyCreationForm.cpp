@@ -41,7 +41,7 @@ RCF & RCF::operator=(RCF const & rhs)
 
 	if (this != &rhs)
 	{
-		this->~RCF();
+		this->RCF::~RCF();
 		*this = RCF(rhs);
 	}
 

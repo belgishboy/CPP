@@ -2,7 +2,8 @@
 #ifndef PresidentialPardonForm_HPP
 # define PresidentialPardonForm_HPP
 
-# include "Admin.h"
+# include "AForm.hpp"
+
 
 // CLASS
 

@@ -41,7 +41,7 @@ SCF & SCF::operator=(SCF const & rhs)
 
 	if (this != &rhs)
 	{
-		this->~SCF();
+		this->SCF::~SCF();
 		*this = SCF(rhs);
 	}
 
