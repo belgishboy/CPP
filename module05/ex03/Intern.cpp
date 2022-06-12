@@ -49,18 +49,35 @@ Intern & Intern::operator=(Intern const & rhs)
 	return (*this);
 }
 
-AForm * Intern::makeForm(std::string const name, std::string const target) const
+AForm * Intern::makeForm(std::string const name, std::string const target)
 {
-	AFormMake f[3] = {&PPF::PPF(), &RCF::RCF(), &SCF::SCF()};
+	AFormMake f[3] = {&Intern::makePPF, &Intern::makeRCF, &Intern::makeSCF};
 	std::string l[3] = {"PPF", "RCF", "SCF"};
 	for (int i = 0; i < 3; i ++)
 	{
 		if (name == l[i])
-			return ((f[i])(target));
+		{
+			std::cout << "Intern creates " << l[i] << std::endl;
+			return (this->*f[i])(target);
+		}
 	}
 	throw Intern::FormDoesntExist();
 	return (NULL);
 }
+
+AForm * Intern::makePPF(std::string const target)
+{
+	return (new PPF(target));
+}
+AForm * Intern::makeRCF(std::string const target)
+{
+	return (new RCF(target));
+}
+AForm * Intern::makeSCF(std::string const target)
+{
+	return (new SCF(target));
+}
+
 
 char const * Intern::FormDoesntExist::what() const throw()
 {

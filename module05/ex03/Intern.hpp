@@ -18,8 +18,12 @@ class Intern
 
 		Intern & operator=(Intern const & rhs);	//CANONICAL: To assign the values of one class to another
 
-		typedef void(AForm::*AFormMake)(void);
-		AForm * makeForm(std::string const name, std::string const target) const;
+		typedef AForm * (Intern::*AFormMake)(std::string const target);
+		AForm * makeForm(std::string const name, std::string const target);
+		
+		AForm * makePPF(std::string const target);
+		AForm * makeRCF(std::string const target);
+		AForm * makeSCF(std::string const target);
 
 		class FormDoesntExist : public std::exception
 		{
