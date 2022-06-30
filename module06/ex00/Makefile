@@ -1,7 +1,6 @@
-NAME	= Sample
+NAME	= convert
 
-SRC	=	main.cpp \
-		$(NAME).cpp \
+SRC	=	main2.cpp \
 
 OBJ	= $(SRC:.cpp=.o)
 
@@ -21,7 +20,6 @@ grind:
 
 clean:
 	rm -rf $(OBJ)
-	rm test
 
 fclean: clean
 	rm -rf $(NAME)
@@ -30,5 +28,5 @@ re: fclean all
 
 .PHONY: all clean fclean re
 
-test: test.cpp
+test:
 	$(CC) $(FLAGS) test.cpp -o test
