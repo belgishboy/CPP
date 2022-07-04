@@ -1,6 +1,6 @@
 NAME	= convert
 
-SRC	=	main2.cpp \
+SRC	=	main.cpp \
 
 OBJ	= $(SRC:.cpp=.o)
 
@@ -27,6 +27,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-
-test:
-	$(CC) $(FLAGS) test.cpp -o test
