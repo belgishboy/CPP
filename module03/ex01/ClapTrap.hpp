@@ -39,7 +39,7 @@ class ClapTrap
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
-	private :
+	protected :
 		std::string _name;//Name
 		int	_hp;//Health Points
 		int	_ep;//Energy Points

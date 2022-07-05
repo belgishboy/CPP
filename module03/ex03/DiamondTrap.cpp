@@ -60,7 +60,7 @@ void DiamondTrap::whoAmI(void)
 	if (this->getHP() <= 0)
 		std::cout << "DiamondTrap " << this->getName() << " is dead." << std::endl;
 	else
-		std::cout << "DiamondTrap Name : " << this->name << "\nClapTrap Name: " << this->getName() << std::endl;
+		std::cout << "DiamondTrap Name : " << this->name << "\nClapTrap Name: " << this->ClapTrap::_name << std::endl;
 
 	return ;
 }

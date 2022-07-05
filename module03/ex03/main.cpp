@@ -33,6 +33,8 @@ int main( void )
 
 	d.whoAmI();
 	d.attack(h.getName());
+	d.guardGate();
+	d.highFivesGuys();
 
 
 	std::cout << d << std::endl;
