@@ -8,7 +8,7 @@
 
 //CLASS
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 	public :
 		ScavTrap (void);							//CANONICAL: Default Constructor

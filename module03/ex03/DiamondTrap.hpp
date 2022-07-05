@@ -12,7 +12,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
 {
 	public :
 		DiamondTrap (void);							//CANONICAL: Default Constructor
-		DiamondTrap (std::string const name);
+		DiamondTrap (std::string const newName);
 		DiamondTrap (DiamondTrap const & src);			//CANONICAL: Constructor by copy
 		~DiamondTrap (void);							//CANONICAL: Default Destructor
 
@@ -20,8 +20,11 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		bool operator==(DiamondTrap const & rhs) const;
 
 		//CLASS SPECIFIC
-		void attack(const std::string& target);
-		void highFivesGuys(void);
+		using ScavTrap::attack;
+		void whoAmI ();
+
+	private :
+		const std::string name;
 };
 
 std::ostream & operator<<(std::ostream & o, DiamondTrap const & i);

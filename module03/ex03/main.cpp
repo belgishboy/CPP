@@ -1,5 +1,6 @@
 
 #include "Trap.h"
+#include "DiamondTrap.hpp"
 
 int main( void )
 {
@@ -23,12 +24,18 @@ int main( void )
 	v.takeDamage(100);
 	v.guardGate();
 
-	ScavTrap s("Saskia");
+	FragTrap s("Saskia");
 
 	std::cout << s << std::endl;
-	s = v;
+	s.highFivesGuys();
 
-	std::cout << "after : " << std::endl << s << std::endl;
+	DiamondTrap d("Clemens");
+
+	d.whoAmI();
+	d.attack(h.getName());
+
+
+	std::cout << d << std::endl;
 
 	return (0);
 }

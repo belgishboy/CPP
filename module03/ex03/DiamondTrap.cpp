@@ -5,11 +5,12 @@
  * @brief Construct a new DiamondTrap:: DiamondTrap object
  * _name = Nobody; _hp = 100; _ep = 100; _att = 30
  */
-DiamondTrap::DiamondTrap ( void )
+DiamondTrap::DiamondTrap ( void ): name("Nobody")
 {
-	setHP(100);
-	setEP(100);
-	setATT(30);
+	ClapTrap::setName(name + "_clap_name");
+	setHP(FragTrap::getHP());
+	setEP(ScavTrap::getEP());
+	setATT(ScavTrap::getATT());
 	std::cout << std::endl << "Default DiamondTrap Constructor for " << getName() << " called" << std::endl;
 	return ;
 }
@@ -19,12 +20,12 @@ DiamondTrap::DiamondTrap ( void )
  * _name = name; _hp = 100; _ep = 100; _att = 30
  * @param name string to be given to _name
  */
-DiamondTrap::DiamondTrap (std::string const name)
+DiamondTrap::DiamondTrap (std::string const newName) : name(newName)
 {
-	setName(name);
-	setHP(100);
-	setEP(100);
-	setATT(30);
+	ClapTrap::setName(name + "_clap_name");
+	setHP(FragTrap::getHP());
+	setEP(ScavTrap::getEP());
+	setATT(ScavTrap::getATT());
 	std::cout << std::endl << "Parametric DiamondTrap Constructor for " << getName() << " called" << std::endl;
 	return ;
 }
@@ -52,36 +53,14 @@ DiamondTrap::~DiamondTrap (void)
 //**CLASS SPECIFIC**//
 
 /**
- * @brief instance 'attacks' `target
- * @param target name of the target
+ * @brief tells name
  */
-void DiamondTrap::attack(const std::string& target)
+void DiamondTrap::whoAmI(void)
 {
 	if (this->getHP() <= 0)
 		std::cout << "DiamondTrap " << this->getName() << " is dead." << std::endl;
 	else
-	{
-		if (this->getEP() > 0)
-		{
-			this->setEP(this->getEP() - 1);
-			std::cout << "DiamondTrap " << this->getName() << " attacks " << target << ", causing " << this->getATT() << " points of damage." << std::endl;
-		}
-		else
-			std::cout << "DiamondTrap " << this->getName() << " doesn't have enough EP." << std::endl;
-	}
-
-	return ;
-}
-
-/**
- * @brief gives everyone high fives
- */
-void DiamondTrap::highFivesGuys(void)
-{
-	if (this->getHP() <= 0)
-		std::cout << "DiamondTrap " << this->getName() << " is dead." << std::endl;
-	else
-		std::cout << "DiamondTrap " << this->getName() << " is giving everyone high fives. WOOOO." << std::endl;
+		std::cout << "DiamondTrap Name : " << this->name << "\nClapTrap Name: " << this->getName() << std::endl;
 
 	return ;
 }

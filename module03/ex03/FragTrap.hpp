@@ -8,7 +8,7 @@
 
 //CLASS
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 	public :
 		FragTrap (void);							//CANONICAL: Default Constructor
