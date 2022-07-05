@@ -6,7 +6,7 @@
 /*   By: vheymans <vheymans@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 14:17:55 by vheymans          #+#    #+#             */
-/*   Updated: 2022/05/19 14:28:18 by vheymans         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:14:14 by vheymans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,7 @@ void Contact::get_contact(void)
 		std::cout << this->nname.substr(0, 9) << "." << "|";
 	else
 		std::cout << std::setw(10) << this->nname << "|";
-
-	if (this->ph_nbr.length() > 10)
-		std::cout << this->ph_nbr.substr(0, 9) << "." << "|";
-	else
-		std::cout << std::setw(10) << this->ph_nbr << "|";
+	std::cout << std::endl;
 
 	return ;
 }

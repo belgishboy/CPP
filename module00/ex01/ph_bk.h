@@ -6,7 +6,7 @@
 /*   By: vheymans <vheymans@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 14:34:42 by vheymans          #+#    #+#             */
-/*   Updated: 2022/05/19 14:07:34 by vheymans         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:09:51 by vheymans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 //INCLUDE
 
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 # include <iostream>
 # include <iomanip>
 # include <string>
