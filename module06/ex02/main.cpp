@@ -72,7 +72,9 @@ int main(void)
 	srand(55*rand());
 	Base *b = generate();
 	identify(b);
+	delete b;
 	b = generate();
 	identify(*b);
+	delete b;
 	return (0);
 }
