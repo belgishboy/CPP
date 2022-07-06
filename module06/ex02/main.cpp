@@ -7,27 +7,72 @@
 Base * generate(void)
 {
 	int i = rand();
-	Base p;
+	Base *p = NULL;
 	if (i % 3 == 0)
-		p = A();
+		p = new A();
 	else if (i % 3 == 1)
-		p = B();
+		p = new B();
 	else
-		p = C();
-	return (&p);
+		p = new C();
+	return (p);
 }
 
 void identify(Base* p)
 {
-
+	A * a = dynamic_cast<A *>(p);
+	B * b = dynamic_cast<B *>(p);
+	C * c = dynamic_cast<C *>(p);
+	if (a != NULL)
+		std::cout << "This is a A object" << std::endl;
+	else if (b != NULL)
+		std::cout << "This is a B object" << std::endl;
+	else if (c != NULL)
+		std::cout << "This is a C object" << std::endl;
+	else
+		std::cout << "ERROR" << std::endl;
+	return ;
+	
 }
 
 void identify(Base& p)
 {
-
+	try 
+	{
+		A & a = dynamic_cast<A &>(p);
+		std::cout << &a << "\nThis is a A object" << std::endl;
+		return ;
+	}
+	catch ( std::bad_cast &bc)
+	{
+	}
+	try 
+	{
+		B & b = dynamic_cast<B &>(p);
+		std::cout << &b << "\nThis is a B object" << std::endl;
+		return ;
+	}
+	catch ( std::bad_cast &bc)
+	{
+	}
+	try 
+	{
+		C & c = dynamic_cast<C &>(p);
+		std::cout << &c << "\nThis is a C object" << std::endl;
+		return ;
+	}
+	catch ( std::bad_cast &bc)
+	{
+		std::cout << "ERROR" << std::endl;
+	}
+	return ;
 }
 
 int main(void)
 {
-	
+	srand(55*rand());
+	Base *b = generate();
+	identify(b);
+	b = generate();
+	identify(*b);
+	return (0);
 }
