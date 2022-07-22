@@ -10,6 +10,8 @@
 
 class Span
 {
+	typedef	std::vector<int>::iterator iter;
+
 	public :
 		Span (unsigned int const n);
 		Span (Span const & src);			//CANONICAL: Constructor by copy
@@ -20,6 +22,8 @@ class Span
 		void addNumber(int n);
 		int shortestSpan(void);
 		int longestSpan(void);
+		void addNumber(iter s, iter e);
+		std::vector<int> & getL(void);
 
 		class OutOfBounds : public std::exception
 		{
@@ -42,7 +46,6 @@ class Span
 		Span (void);							//CANONICAL: Default Constructor
 		unsigned int const _n;
 		bool _sort;
-		unsigned int _i;
 		std::vector<int> _l;
 
 };

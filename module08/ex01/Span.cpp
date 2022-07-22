@@ -3,7 +3,7 @@
 /**
  * @brief Construct a new Span:: Span object
  */
-Span::Span ( void ): _n(0), _sort(0), _i(0)
+Span::Span ( void ): _n(0), _sort(0)
 {
 	std::cout << std::endl << "Default Span Constructor called" << std::endl;
 	return ;
@@ -13,7 +13,7 @@ Span::Span ( void ): _n(0), _sort(0), _i(0)
  * @brief Construct a new Span:: Span object
  * @param n value to be assgined to _foo
  */
-Span::Span (unsigned int const n) : _n(n), _sort(0), _i(0)
+Span::Span (unsigned int const n) : _n(n), _sort(0)
 {
 	std::cout << std::endl << "Parametric Span Constructor called" << std::endl;
 	return ;
@@ -58,16 +58,52 @@ Span & Span::operator=(Span const & rhs)
 
 void Span::addNumber(int n)
 {
+	if (this->_l.size() < this->_n)
+	{
+	this->_l.push_back(n);
+	this->_sort = 0;
+	}
+	else
+		throw OutOfBounds();
+}
+
+int Span::shortestSpan(void)
+{
+	if (this->_l.size() < 2)
+		throw TooShort();
+	if (!this->_sort)
+	{
+		std::sort(this->_l.begin(), this->_l.end());
+		this->_sort = 1;
+	}
+	int s = std::abs(*(this->_l.begin())) - std::abs(*(this->_l.begin()+1));
+	for (std::vector<int>::iterator it=this->_l.begin()+1; it!=this->_l.end() - 1; ++it)
+	{
+		int temp = std::abs(*(it + 1)) - std::abs(*it);
+		if (temp < s)
+		{
+			s = temp;
+		}
+	}
+	return (s);
+}
+
+int Span::longestSpan(void)
+{
+	if (this->_l.size() < 2)
+		throw TooShort();
+	return (*(std::max_element(this->_l.begin(), this->_l.end())) - *(std::min_element(this->_l.begin(), this->_l.end())));
+}
+
+void Span::addNumber(iter s, iter e)
+{
 	try
 	{
-		if (this->_l.size() < this->_n)
+		while (s <= e)
 		{
-			this->_l.push_back(n);
-			this->_sort = 0;
-			this->_i ++;
+			this->addNumber(*s);
+			s ++;
 		}
-		else
-			throw OutOfBounds();
 	}
 	catch (OutOfBounds &e)
 	{
@@ -75,47 +111,7 @@ void Span::addNumber(int n)
 	}
 }
 
-int Span::shortestSpan(void)
+std::vector<int> & Span::getL(void)
 {
-	try
-	{
-		if (this->_l.size() < 2)
-			throw TooShort();
-		if (!this->_sort)
-		{
-			std::sort(this->_l.begin(), this->_l.end());
-			this->_sort = 1;
-		}
-		int s = std::abs(*(this->_l.begin())) - std::abs(*(this->_l.begin()+1));
-		for (std::vector<int>::iterator it=this->_l.begin()+1; it!=this->_l.end() - 1; ++it)
-		{
-			int temp = std::abs(*(it + 1)) - std::abs(*it);
-			if (temp < s)
-			{
-				std::cout << *(it + 1) << " - " << *it << ". s was : " << s << std::endl;
-				s = temp;
-			}
-		}
-		return (s);
-	}
-	catch (TooShort &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	return (-1);
-}
-
-int Span::longestSpan(void)
-{
-	try
-	{
-		if (this->_l.size() < 2)
-			throw TooShort();
-		return (*(std::max_element(this->_l.begin(), this->_l.end())) - *(std::min_element(this->_l.begin(), this->_l.end())));
-	}
-	catch (TooShort &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	return (-1);
+	return (this->_l);
 }
