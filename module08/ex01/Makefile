@@ -1,6 +1,7 @@
-NAME	= find
+NAME	= Span
 
-SRC	=	main.cpp \
+SRC	=	$(NAME).cpp \
+		main.cpp \
 
 OBJ	= $(SRC:.cpp=.o)
 

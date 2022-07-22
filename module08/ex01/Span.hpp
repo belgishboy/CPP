@@ -1,9 +1,10 @@
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
-# include <list>
+# include <vector>
 # include <iostream>
 # include <algorithm>
+# include <cstdlib>
 
 // CLASS
 
@@ -17,24 +18,32 @@ class Span
 		Span & operator=(Span const & rhs);	//CANONICAL: To assign the values of one class to another
 
 		void addNumber(int n);
-		int const shortestSpan(void);
-		int const longestSpan(void);
+		int shortestSpan(void);
+		int longestSpan(void);
 
 		class OutOfBounds : public std::exception
-			{
-				public :
-					virtual const char* what() const throw()
-					{
-						return ("Span already full.")
-					}
-			};
+		{
+			public :
+				const char* what() const throw()
+				{
+					return ("Span already full.");
+				}
+		};
+		class TooShort : public std::exception
+		{
+			public :
+				const char* what() const throw()
+				{
+					return ("Span too small.");
+				}
+		};
 
 	private :
 		Span (void);							//CANONICAL: Default Constructor
 		unsigned int const _n;
 		bool _sort;
 		unsigned int _i;
-		std::list<int> _l;
+		std::vector<int> _l;
 
 };
 
