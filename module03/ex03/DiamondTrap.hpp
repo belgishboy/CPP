@@ -17,7 +17,6 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		~DiamondTrap (void);							//CANONICAL: Default Destructor
 
 		DiamondTrap & operator=(DiamondTrap const & rhs);	//CANONICAL: To assign the values of one class to another
-		bool operator==(DiamondTrap const & rhs) const;
 
 		//CLASS SPECIFIC
 		using ScavTrap::attack;

@@ -17,7 +17,8 @@ Brain::Brain ( void )
 Brain::Brain (Brain const & src)
 {
 	std::cout << std::endl << "Copy Brain Constructor called" << std::endl;
-	*this = src;
+	for(int i = 0; i < 100; i ++)
+		this->setIdea(src.getIdea(i), i);
 	return ;
 }
 
@@ -131,7 +132,7 @@ bool Brain::operator==(Brain const & rhs) const
  */
 std::ostream & operator<<(std::ostream & o, Brain const & i)
 {
-	for (int x = 0; x < 100; x ++)
+	for (int x = 0; x < 10; x ++)
 		o << x << ": " << i.getIdea(x) << "." << std::endl;
 	return (o);
 }

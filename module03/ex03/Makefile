@@ -10,7 +10,7 @@ OBJ	= $(SRC:.cpp=.o)
 
 CC		= clang++
 
-FLAGS	= -Wall -Werror -Wextra -std=c++98 -pedantic-errors
+FLAGS	= -Wall -Werror -Wextra -Wshadow -std=c++98 -pedantic-errors
 
 all:	$(NAME)
 

@@ -17,7 +17,6 @@ class FragTrap : public ClapTrap
 		~FragTrap (void);							//CANONICAL: Default Destructor
 
 		FragTrap & operator=(FragTrap const & rhs);	//CANONICAL: To assign the values of one class to another
-		bool operator==(FragTrap const & rhs) const;
 
 		//CLASS SPECIFIC
 		void attack(const std::string& target);

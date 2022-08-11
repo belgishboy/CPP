@@ -15,13 +15,15 @@ class Cat : public AAnimal
 
 		Cat & operator=(Cat const & rhs);	//CANONICAL: To assign the values of one class to another
 
-		bool operator==(Cat const & rhs) const;
-
 		void makeSound(void) const;
+		Brain & getBrain (void);
+		Brain & getBrain (void) const;
+
+		void setIdea(std::string const idea, int const i);
 
 		private :
 			Brain * _brain;
 };
 
-std::ostream & operator<<(std::ostream & o, Cat const & i);
+std::ostream & operator<<(std::ostream & o, Cat & i);
 #endif

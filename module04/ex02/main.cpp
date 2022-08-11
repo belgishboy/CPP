@@ -17,8 +17,9 @@ int main()
 	// delete j;
 	// delete i;
 
-	AAnimal **zoo  = new AAnimal*[6];
-	for (int x = 0; x < 6; x ++)
+	int y = 3;
+	AAnimal **zoo  = new AAnimal*[y];
+	for (int x = 0; x < y; x ++)
 	{
 		if (x % 2 == 0)
 		{
@@ -28,8 +29,15 @@ int main()
 			zoo[x] = new Cat();
 	}
 
-	std::cout << *((Dog *)(zoo[0])) << std::endl;
-	for (int x = 0; x < 6; x ++)
+
+	std::cout << *((Cat *)(zoo[1])) << std::endl;
+	((Cat *)(zoo[1]))->setIdea("This is a old Idea.", 2);
+	std::cout << *((Cat *)(zoo[1])) << std::endl;
+	Cat d(*((Cat *)(zoo[1])));
+	d.setIdea("This is a very new Idea.", 2);
+	std::cout << d << std::endl;
+	std::cout << *((Cat *)(zoo[1])) << std::endl;
+	for (int x = 0; x < y; x ++)
 		delete zoo[x];
 	delete[] zoo;
 

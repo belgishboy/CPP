@@ -7,7 +7,7 @@
  */
 Dog::Dog ( void )
 {
-	std::cout << std::endl << "Default Dog Constructor called" << std::endl;
+	//std::cout << std::endl << "Default Dog Constructor called" << std::endl;
 	this->setType("Dog");
 	_brain = new Brain();
 	_brain->setIdea("WOOF", 0);
@@ -23,7 +23,8 @@ Dog::Dog ( void )
 Dog::Dog (Dog const & src)
 {
 	std::cout << std::endl << "Copy Dog Constructor called" << std::endl;
-	*this = src;
+	this->_brain = new Brain(src.getBrain());
+	this->setType(src.getType());
 	return ;
 }
 
@@ -54,24 +55,19 @@ Dog & Dog::operator=(Dog const & rhs)
 	return (*this);
 }
 
-/**
- * @brief checks if the values of two class instances are the same
- * 
- * @param rhs class instance being checked against
- * @return [true] if all members of each class are equal
- * @return [false] if not all members of each class are equal
- */
-bool Dog::operator==(Dog const & rhs) const
+void Dog::setIdea(std::string const idea, int const i)
 {
-	if (!((Animal)*this == (Animal)rhs))
-		return (false);
-
-	return (true);
+	this->_brain->setIdea(idea, i);
 }
 
-std::string const Dog::getBrain (void) const
+Brain & Dog::getBrain (void)
 {
-	return (this->_brain->getIdea(1));
+	return (*this->_brain);
+}
+
+Brain & Dog::getBrain (void) const
+{
+	return (*this->_brain);
 }
 
 
@@ -86,10 +82,10 @@ void Dog::makeSound(void) const
  * @param i instance that will be outputted
  * @return [std::ostream&] where to be outputted
  */
-std::ostream & operator<<(std::ostream & o, Dog const & i)
+std::ostream & operator<<(std::ostream & o, Dog & i)
 {
 	i.makeSound();
-	o << (Animal)i;
+	o << "The value of _type is : " << i.getType() << std::endl;
 	o << i.getBrain();
 	return (o);
 }

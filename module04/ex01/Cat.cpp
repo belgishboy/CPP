@@ -7,9 +7,11 @@
  */
 Cat::Cat ( void )
 {
-	std::cout << std::endl << "Default Cat Constructor called" << std::endl;
+	//std::cout << std::endl << "Default Cat Constructor called" << std::endl;
 	this->setType("Cat");
 	_brain = new Brain();
+	_brain->setIdea("I Hate Humans", 0);
+	_brain->setIdea("Must scratch something", 1);
 	
 	return ;
 }
@@ -21,7 +23,8 @@ Cat::Cat ( void )
 Cat::Cat (Cat const & src)
 {
 	std::cout << std::endl << "Copy Cat Constructor called" << std::endl;
-	*this = src;
+	this->_brain = new Brain(src.getBrain());
+	this->setType(src.getType());
 	return ;
 }
 
@@ -52,20 +55,21 @@ Cat & Cat::operator=(Cat const & rhs)
 	return (*this);
 }
 
-/**
- * @brief checks if the values of two class instances are the same
- * 
- * @param rhs class instance being checked against
- * @return [true] if all members of each class are equal
- * @return [false] if not all members of each class are equal
- */
-bool Cat::operator==(Cat const & rhs) const
+void Cat::setIdea(std::string const idea, int const i)
 {
-	if (!((Animal)*this == (Animal)rhs))
-		return (false);
-
-	return (true);
+	this->_brain->setIdea(idea, i);
 }
+
+Brain & Cat::getBrain (void)
+{
+	return (*this->_brain);
+}
+
+Brain & Cat::getBrain (void) const
+{
+	return (*this->_brain);
+}
+
 
 void Cat::makeSound(void) const
 {
@@ -78,8 +82,10 @@ void Cat::makeSound(void) const
  * @param i instance that will be outputted
  * @return [std::ostream&] where to be outputted
  */
-std::ostream & operator<<(std::ostream & o, Cat const & i)
+std::ostream & operator<<(std::ostream & o, Cat & i)
 {
-	o << (Animal)i;
+	i.makeSound();
+	o << "The value of _type is : " << i.getType() << std::endl;
+	o << i.getBrain();
 	return (o);
 }

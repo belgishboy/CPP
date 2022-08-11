@@ -5,7 +5,7 @@ SRC	=	Data.cpp \
 
 OBJ	= $(SRC:.cpp=.o)
 
-CC		= clang++
+CC		= c++
 
 FLAGS	= -Wall -Werror -Wextra -std=c++98 -pedantic-errors
 

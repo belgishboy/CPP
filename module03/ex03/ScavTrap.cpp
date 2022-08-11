@@ -108,21 +108,6 @@ ScavTrap & ScavTrap::operator=(ScavTrap const & rhs)
 }
 
 /**
- * @brief checks if the values of two class instances are the same
- * 
- * @param rhs class instance being checked against
- * @return [true] if all members of each class are equal
- * @return [false] if not all members of each class are equal
- */
-bool ScavTrap::operator==(ScavTrap const & rhs) const
-{
-	if (!((ClapTrap)*this == (ClapTrap)rhs))
-		return (false);
-	
-	return (true);
-}
-
-/**
  * @brief outputs the contents of `i` into o
  * @param o out stream
  * @param i instance that will be outputted
