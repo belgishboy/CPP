@@ -39,7 +39,7 @@ void identify(Base& p)
 	try 
 	{
 		A & a = dynamic_cast<A &>(p);
-		std::cout << &a << "\nThis is a A object" << std::endl;
+		std::cout << &a << "\n Pointer: This is a A object" << std::endl;
 		return ;
 	}
 	catch ( std::bad_cast &bc)
@@ -48,7 +48,7 @@ void identify(Base& p)
 	try 
 	{
 		B & b = dynamic_cast<B &>(p);
-		std::cout << &b << "\nThis is a B object" << std::endl;
+		std::cout << &b << "\n Pointer: This is a B object" << std::endl;
 		return ;
 	}
 	catch ( std::bad_cast &bc)
@@ -57,7 +57,7 @@ void identify(Base& p)
 	try 
 	{
 		C & c = dynamic_cast<C &>(p);
-		std::cout << &c << "\nThis is a C object" << std::endl;
+		std::cout << &c << "\n Pointer: This is a C object" << std::endl;
 		return ;
 	}
 	catch ( std::bad_cast &bc)
@@ -69,11 +69,11 @@ void identify(Base& p)
 
 int main(void)
 {
-	srand(55*rand());
+	srand(22*rand());
 	Base *b = generate();
 	identify(b);
-	delete b;
-	b = generate();
+	//delete b;
+	//b = generate();
 	identify(*b);
 	delete b;
 	return (0);

@@ -14,7 +14,7 @@ Data* deserialize(uintptr_t raw)
 
 int main(void)
 {
-	Data t = Data(42);
+	Data t = Data('c');
 	Data *h = deserialize(serialize(&t));
 
 	std::cout << "Original : " << &t << "\nNew : " << h << std::endl;

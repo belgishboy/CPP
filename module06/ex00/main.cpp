@@ -1,5 +1,3 @@
-# include <stdint.h>
-
 # include <iostream>
 # include <iomanip>
 # include <string>
@@ -31,7 +29,6 @@ int main(int argc, char **argv)
 		return (1);
 	}
 	std::string s = argv[1];
-	std::istringstream in(s);
 	long double v;
 	bool inff = 0;
 	bool inf = 0;
@@ -55,6 +52,7 @@ int main(int argc, char **argv)
 	}
 	else
 	{
+		std::istringstream in(s.substr(0, s.find_first_not_of("0123456789.")));
 		in >> v;
 		std::cout << "char : Not possible" << std::endl;
 	}
@@ -74,7 +72,7 @@ int main(int argc, char **argv)
 			std::cerr << e.what() << std::endl;
 		}
 	}
-
+	std::cout.precision(1);
 	std::cout << "float : ";
 	if (nan)
 		std::cout << "nanf" << std::endl;
@@ -83,7 +81,7 @@ int main(int argc, char **argv)
 		try 
 		{
 			float f = static_cast<float>(v);
-			std::cout << std::setprecision(1) << f << "f" << std::endl;
+			std::cout << std::fixed << f << "f" << std::endl;
 		}
 		catch(const std::exception& e)
 		{
@@ -101,7 +99,7 @@ int main(int argc, char **argv)
 		try 
 		{
 			double d = static_cast<double>(v);
-			std::cout << d << std::endl;
+			std::cout << std::fixed << d << std::endl;
 		}
 		catch(const std::exception& e)
 		{
