@@ -69,7 +69,7 @@ void identify(Base& p)
 
 int main(void)
 {
-	srand(22*rand());
+	srand(42*rand());
 	Base *b = generate();
 	identify(b);
 	//delete b;
