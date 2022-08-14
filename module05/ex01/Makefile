@@ -28,7 +28,8 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+run:
+	$(MAKE) re
+	./$(NAME)
 
-test:
-	$(CC) $(FLAGS) test.cpp -o test
+.PHONY: all clean fclean re

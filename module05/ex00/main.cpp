@@ -21,5 +21,13 @@ int main()
 	
 	std::cout << k ++ << std::endl;
 
+	try
+	{
+		v++;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	return (0);
 }

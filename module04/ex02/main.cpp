@@ -30,13 +30,13 @@ int main()
 	}
 
 
-	std::cout << *((Cat *)(zoo[1])) << std::endl;
-	((Cat *)(zoo[1]))->setIdea("This is a old Idea.", 2);
-	std::cout << *((Cat *)(zoo[1])) << std::endl;
-	Cat d(*((Cat *)(zoo[1])));
-	d.setIdea("This is a very new Idea.", 2);
-	std::cout << d << std::endl;
-	std::cout << *((Cat *)(zoo[1])) << std::endl;
+	// std::cout << *((Cat *)(zoo[1])) << std::endl;
+	// ((Cat *)(zoo[1]))->setIdea("This is a old Idea.", 2);
+	// std::cout << *((Cat *)(zoo[1])) << std::endl;
+	// Cat d(*((Cat *)(zoo[1])));
+	// d.setIdea("This is a very new Idea.", 2);
+	// std::cout << d << std::endl;
+	// std::cout << *((Cat *)(zoo[1])) << std::endl;
 	for (int x = 0; x < y; x ++)
 		delete zoo[x];
 	delete[] zoo;

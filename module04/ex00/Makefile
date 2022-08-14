@@ -31,4 +31,8 @@ fclean: clean
 
 re: fclean all
 
+run:
+	$(MAKE) re
+	./$(NAME)
+
 .PHONY: all clean fclean re

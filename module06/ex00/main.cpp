@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 		nan = 1;
 	if (s.length() == 1 && ft_isprint(static_cast<int>(s.at(0))) && !(ft_isdigit(static_cast<int>(s.at(0)))))
 	{
-		std::cout << "yes is a char" << std::endl;
+		//std::cout << "yes is a char" << std::endl;
 		v = static_cast<char>(s.at(0));
 		char c = v;
 		std::cout << "char : " << c << std::endl;
