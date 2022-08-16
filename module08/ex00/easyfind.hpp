@@ -7,7 +7,7 @@
 
 
 template< typename T >
-T const & easyfind(std::list<T> l, const int i);
+typename T::iterator easyfind(T & l, const int i);
 
 class NotFound : public std::exception
 {

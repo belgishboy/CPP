@@ -50,4 +50,6 @@ class Span
 
 };
 
+std::ostream & operator<<(std::ostream & o, Span & i);
+
 #endif

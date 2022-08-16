@@ -29,8 +29,20 @@ int main(int, char**)
 		std::cerr << e.what() << std::endl;
 	}
 	Span temp(2);
-	temp.addNumber(1);
-	temp.addNumber(0);
-	s.addNumber((temp.getL()).begin(), (temp.getL()).end());
+	Span _tmp(2);
+	temp.addNumber(21);
+	temp.addNumber(42);
+	_tmp.addNumber((temp.getL()).begin(), (temp.getL()).end());
+	std::cout << _tmp << std::endl;
+
+	Span sp = Span(5);
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+	
 	return (0);
 }

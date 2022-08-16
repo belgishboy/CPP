@@ -1,5 +1,6 @@
 
 #include "easyfind.hpp"
+#include <algorithm>
 
 
 /**
@@ -10,12 +11,10 @@
  * @return T const& instance of `i in `l
  */
 template< typename T >
-T const & easyfind(std::list<T> l, const int i)
+typename T::iterator easyfind(T & l, const int i)
 {
-	for (typename std::list<T>::iterator x = l.begin(); x != l.end(); x ++)
-	{
-		if (*x == i)
-			return (*x);
-	}
+	typename T::iterator x = std::find(l.begin(), l.end(), i);
+	if (x != l.end())
+		return (x);
 	throw NotFound();
 }

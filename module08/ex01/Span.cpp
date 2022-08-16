@@ -76,10 +76,10 @@ int Span::shortestSpan(void)
 		std::sort(this->_l.begin(), this->_l.end());
 		this->_sort = 1;
 	}
-	int s = std::abs(*(this->_l.begin())) - std::abs(*(this->_l.begin()+1));
+	int s = std::abs(*(this->_l.begin()) - *(this->_l.begin()+1));
 	for (std::vector<int>::iterator it=this->_l.begin()+1; it!=this->_l.end() - 1; ++it)
 	{
-		int temp = std::abs(*(it + 1)) - std::abs(*it);
+		int temp = std::abs(*(it + 1) - *it);
 		if (temp < s)
 		{
 			s = temp;
@@ -99,7 +99,7 @@ void Span::addNumber(iter s, iter e)
 {
 	try
 	{
-		while (s <= e)
+		while (s < e)
 		{
 			this->addNumber(*s);
 			s ++;
@@ -114,4 +114,13 @@ void Span::addNumber(iter s, iter e)
 std::vector<int> & Span::getL(void)
 {
 	return (this->_l);
+}
+
+std::ostream & operator<<(std::ostream & o, Span & i)
+{
+	o << "Span :  ";
+	for (size_t x = 0; x < i.getL().size(); x ++)
+		o << i.getL()[x] << " : ";
+	o << std::endl;
+	return (o);
 }
